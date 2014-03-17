@@ -1,8 +1,8 @@
 /* 
  * File:   main.cpp
  * Author: Paul Wilfley
- * Created on March 17, 2014, 12:07 AM
- * Purpose: Determine the amount owed for 6 months retroactive pay at 7.6%
+ * Purpose: Determine the amount of retroactive pay for any 
+ * number months retroactively pay at 7.6%
  */
 
 //system Libraries
@@ -11,7 +11,6 @@ using namespace std;
 
 //Global Constants
 const float PAY_INC = .076;     //Calculates the retroactive percentage.
-const float HALF_AN = .5;       //Calculates 6 months of salary increase.
 
 //Function Prototypes
 
@@ -19,14 +18,18 @@ const float HALF_AN = .5;       //Calculates 6 months of salary increase.
 int main(int argc, char** argv) {
     //Declare Variables
     float prAnSal, amt_owd, new_sal;
-    
+    int amt_mth;
     //Ask for Total Annual Gross for last year.
     cout << "What was your Total gross salary for last year?" <<endl;
     cin >> prAnSal;
     
+    //Ask for number of months of retroactive pay.
+    cout << "How many months of retroactive pay are you owed?" <<endl;
+    cin >> amt_mth;
+    
     //calculate amount owed and new rate
-    amt_owd = (prAnSal * HALF_AN) * PAY_INC;
-    new_sal = prAnSal * PAY_INC +prAnSal;
+    amt_owd = (prAnSal / 12) * (amt_mth) * PAY_INC;
+    new_sal = prAnSal / 12) * PAY_INC + prAnSal;
     
     //Output Amount of pay owed
     cout << "Based on your previous annual salary," <<endl;
